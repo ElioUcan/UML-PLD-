@@ -2,8 +2,9 @@
 
 Reservation system for additional spaces (UC2, UC3, UC4 from `INFRA.md` / `README.md`).
 
-- **Mandatory use case:** UC2 – Cancel a reservation with partial refund
-- **Additional use cases:** UC3 – QR check-in, UC4 – Register a guest
+- **Use case U2:** UC2 – Cancel a reservation with partial refund
+- **Use case U3:** UC3 – QR code check-in
+- **Use case U4:** UC4 – Register a guest
 
 ## 2.0 Reference class diagram (names used by the sequences)
 
@@ -148,7 +149,7 @@ Two small changes against `INFRA.md` (to be discussed with the team):
 
 ---
 
-## 2.1 UC2 – Cancel a reservation with partial refund (mandatory)
+## 2.1 UC2 – Cancel a reservation with partial refund
 
 **Flow:** the user asks to cancel. The system checks that the reservation can still be cancelled, looks up the refund percentage in the space's cancellation policy, creates the `Refund` (penalty + refund amount), cancels the reservation (which also invalidates its QR), releases the time slot, asks the payment gateway for the partial refund, and finally notifies the user with the breakdown.
 
