@@ -242,7 +242,6 @@ sequenceDiagram
         Reservation-->>AccessControlService: reservation_ok
 
         alt qr_valid and reservation_ok
-            create participant CheckIn
             AccessControlService->>CheckIn: record(reservation, scanner_id, SUCCESS)
             CheckIn-->>AccessControlService: check_in
             AccessControlService->>Reservation: markCheckedIn()
